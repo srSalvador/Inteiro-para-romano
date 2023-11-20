@@ -1,6 +1,6 @@
 import os
 
-os.system('cls')
+os.system('cls') or None
 
 def verificar(romano):
     dic = {
@@ -37,13 +37,12 @@ def mostrar():
                 inteiro = new_verification(inteiro)
             else:
                 print('Número inválido')
-                inteiro = int(input('Insira um número inteiro: '))
-
+                continue
 
 def new_verification(inteiro):
     novamente = int(input('\nGostaria de verificar outro numero?\n (1) Sim (2) Não\nDigite sua opção: '))
     if novamente == 1:
-        os.system('cls')
+        os.system('cls') or None
         inteiro = 0
         return inteiro 
 
@@ -53,5 +52,5 @@ def new_verification(inteiro):
         inteiro = 4000
         return inteiro
 
-
-mostrar()
+if __name__ == '__main__':
+    mostrar()
