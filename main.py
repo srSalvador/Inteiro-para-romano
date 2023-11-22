@@ -1,4 +1,5 @@
 import os
+from colorama import Fore
 
 os.system('cls') or None
 
@@ -30,27 +31,42 @@ def verificar(romano):
 def mostrar():
         inteiro = 0
         while inteiro <= 3999:
-            inteiro = int(input('Insira um número inteiro: '))
-            if inteiro <= 3999:
-                mostrar = verificar(inteiro)
-                print(f'O número {inteiro} em  romano é: {mostrar}')
-                inteiro = new_verification(inteiro)
-            else:
-                print('Número inválido')
-                continue
+            try:
+                inteiro = int(input('Insira um número inteiro entre 1 e 3999: '))
+                if inteiro <= 3999:
+                    mostrar = verificar(inteiro)
+                    print('\nO número ' + Fore.GREEN + str(inteiro) + Fore.RESET + ' em  romano é: ' + Fore.GREEN + mostrar + Fore.RESET)
+                    inteiro = new_verification(inteiro)
+                else:
+                    print(Fore.RED + 'Número inválido' + Fore.RESET)
+                    inteiro = 0
+            except ValueError:
+                print(Fore.RED + 'Digite um valor valido!' + Fore.RESET)
+                os.system('pause')
+                os.system('cls') or None
+                inteiro = 0
 
 def new_verification(inteiro):
-    novamente = int(input('\nGostaria de verificar outro numero?\n (1) Sim (2) Não\nDigite sua opção: '))
-    if novamente == 1:
-        os.system('cls') or None
-        inteiro = 0
-        return inteiro 
+    x = True
+    while x:
+        try:
+            novamente = int(input('\nGostaria de verificar outro numero?\n\n(1) Sim (2) Não\n\nDigite sua opção: '))
+            if novamente == 1:
+                os.system('cls') or None
 
-    else:
-        os.system('cls')
-        print('Obrigado!')
-        inteiro = 4000
-        return inteiro
+                inteiro = 0
+                x = False
+                return inteiro
 
+            else:
+                os.system('cls') or None
+                print('Obrigado!')
+                inteiro = 4000
+                x = False
+                return inteiro
+                    
+        except ValueError:
+            print(Fore.RED + 'Digite um valor valido!' + Fore.RESET)
+         
 if __name__ == '__main__':
     mostrar()
