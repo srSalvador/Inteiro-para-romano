@@ -70,3 +70,6 @@ def new_verification(inteiro):
          
 if __name__ == '__main__':
     mostrar()
+
+# testando
+
