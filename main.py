@@ -67,9 +67,7 @@ def new_verification(inteiro):
                     
         except ValueError:
             print(Fore.RED + 'Digite um valor valido!' + Fore.RESET)
-         
+
 if __name__ == '__main__':
     mostrar()
-
-# testando
-
+    print("Hello")
